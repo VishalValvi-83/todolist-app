@@ -13,7 +13,7 @@ const Home = () => {
   };
 
   const AddTask = () => {
-    
+
     if (newTask === "") {
       toast.error("Oops! Please enter a task 🤔.");
     }
@@ -30,10 +30,16 @@ const Home = () => {
       toast.error('You have reached the maximum number of tasks!');
     }
     else {
-      setTodoList([...todoList, newTask]);
+      const currentDate = new Date();
+      const dueDate = new Date(currentDate.getTime() + 7 * 24 * 60 * 60 * 1000);
+      const taskWithDate = {
+        task: newTask,
+        dateAdded: currentDate.toLocaleDateString() + " " + currentDate.toLocaleTimeString(),
+        dueDate: dueDate.toLocaleDateString() + " " + dueDate.toLocaleTimeString()
+      };
+      setTodoList([...todoList, taskWithDate]);
       setNewTask('');
       toast.success("✨🎉 Great job! Your new task is ready to tackle!");
-
     };
   };
 

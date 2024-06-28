@@ -15,4 +15,14 @@
 input {
     vertical-align: middle;
     outline: none;
+    margin-right: 5px;
+}
+
+span {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 11px;
+    color: #232123;
+    font-weight: bold;
 }
