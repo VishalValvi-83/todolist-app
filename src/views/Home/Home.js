@@ -4,16 +4,20 @@ import Clipboard from './Cipboard.svg'
 import './Home.css';
 
 const Home = () => {
-  const [todoList, setTodoList] = useState([
-    "complete assignments",
-    "Go to Farmhouse",
-  ]);
+  const [todoList, setTodoList] = useState([  ]);
+  const [newTask, setNewTask] = useState('');
 
-
+  const clearTask = () => {
+    console.log('Clear task button clicked!');
+  };
+  const AddTask = () => {
+    setTodoList([...todoList, newTask]);
+    setNewTask('');
+  }
   return (
     <div className='Container'>
       <div className='heading'><h2>ToDo LIST </h2>
-        <img src={Clipboard} alt=' '/></div>
+        <img src={Clipboard} alt=' ' /></div>
       <blockquote>
         "<u>BELIEVE</u> you can and you're halfway there." - Theodore Roosevelt
       </blockquote>
@@ -22,13 +26,20 @@ const Home = () => {
           type="text"
           id="task-input"
           placeholder="Add Your New Task"
-      
+          onChange={(e) => setNewTask(e.target.value)}
         />
-        <button >Add Task</button>
-        <button id="delBtn">Remove Task</button>
+        <button onClick={AddTask}>Add Task</button>
+        <button onClick={clearTask} id="delBtn">Remove Task</button>
       </div>
       <div className="list-container" id="list-container">
-        {(todoList.map((toDoItem, i) => (<TodoCard key={i} toDoItem={toDoItem} ></TodoCard>)))}
+      {todoList.length === 0 ? (
+          <p className="empty-list-text" >"Turn ideas into actions, add a task!"
+          </p>
+        ) : (
+          todoList.map((toDoItem, i) => (
+            <TodoCard key={i} toDoItem={toDoItem} >
+            </TodoCard>
+          )))}
       </div>
     </div>
   );

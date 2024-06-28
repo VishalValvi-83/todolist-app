@@ -1,0 +1,18 @@
+.todo-item {
+    background-color: #d0a350;
+    color: black;
+    font-weight: bold;
+    padding: 15px 10px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.todo-item:hover {
+    background-color: #e0bd7b;
+}
+
+input {
+    vertical-align: middle;
+    outline: none;
+}
