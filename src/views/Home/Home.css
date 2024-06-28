@@ -3,10 +3,10 @@
     border: 1px solid #fdc5a2;
     border-radius: 20px;
     color: white;
-    width: 700px;
+    max-width: 600px;
+    width: auto;
     padding: 20px;
-    margin: 0 auto;
-    margin-top: 50px;
+    margin: 50px auto;
     box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
 }
 

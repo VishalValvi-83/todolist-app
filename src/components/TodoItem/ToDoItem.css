@@ -23,6 +23,6 @@ span {
     right: 10px;
     top: 10px;
     font-size: 11px;
-    color: #232123;
+    color: rgba(0, 0, 0, 0.488);
     font-weight: bold;
 }
