@@ -1,12 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import TodoCard from '../../components/TodoItem/TodoItem';
 import Clipboard from './Cipboard.svg'
 import toast, { Toaster } from 'react-hot-toast';
 import './Home.css';
 
 const Home = () => {
+
   const [todoList, setTodoList] = useState([]);
   const [newTask, setNewTask] = useState('');
+
+  useEffect(() => {
+    const storedTodoList = localStorage.getItem('todoList');
+    if (storedTodoList) {
+      setTodoList(JSON.parse(storedTodoList));
+    }
+  }, []);
+
+  useEffect(() => {
+   if(todoList.length === 0) return
+    localStorage.setItem("todoList", JSON.stringify(todoList))
+  }, [todoList]);
 
   const clearTask = () => {
     console.log('Clear task button clicked!');
