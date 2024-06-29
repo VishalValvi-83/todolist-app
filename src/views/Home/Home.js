@@ -4,6 +4,7 @@ import Clipboard from './Cipboard.svg'
 import toast, { Toaster } from 'react-hot-toast';
 import './Home.css';
 
+
 const Home = () => {
 
   const [todoList, setTodoList] = useState([]);
@@ -21,9 +22,11 @@ const Home = () => {
     localStorage.setItem("todoList", JSON.stringify(todoList))
   }, [todoList]);
 
-  const clearTask = () => {
-    console.log('Clear task button clicked!');
-  };
+
+  
+  function deleteItem(index) {
+    setTodoList(todoList.filter((item, i) => i !== index));
+  }
 
   const AddTask = () => {
 
@@ -72,7 +75,6 @@ const Home = () => {
           onChange={(e) => setNewTask(e.target.value)}
         />
         <button onClick={AddTask}>Add Task</button>
-        <button onClick={clearTask} id="delBtn">Remove Task</button>
       </div>
       <div className="list-container" id="list-container">
         {todoList.length === 0 ? (
@@ -80,7 +82,7 @@ const Home = () => {
           </p>
         ) : (
           todoList.map((toDoItem, i) => (
-            <TodoCard key={i} toDoItem={toDoItem} >
+            <TodoCard key={i} index={i} toDoItem={toDoItem} deleteItem={deleteItem} >
             </TodoCard>
           )))}
       </div>

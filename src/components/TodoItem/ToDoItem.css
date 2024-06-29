@@ -20,9 +20,26 @@ input {
 
 span {
     position: absolute;
-    right: 10px;
-    top: 10px;
+    right: 15px;
+    bottom: 2px;
     font-size: 11px;
     color: rgba(0, 0, 0, 0.488);
     font-weight: bold;
+}
+.task-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.remove-icon{
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+    transition: all .3s;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+.remove-icon:hover{
+    transform: rotate(180deg);
+    
 }

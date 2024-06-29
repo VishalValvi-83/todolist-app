@@ -1,19 +1,22 @@
 import React from 'react';
 import './ToDoItem.css';
+import Remove from './x-button.png'
 
-function TodoItem({ toDoItem }) {
+function TodoItem({ toDoItem, index, deleteItem }) {
+
   return (
     <div className="todo-item">
-      <div className="checkbox-container">
-        <input type="checkbox" />
-      </div>
-      <div className="task-info">
+      <div  className="task-info">
         <p>{toDoItem.task}</p>
-        <span>
+        
+      <img  src={Remove} alt='' className='remove-icon' onClick={()=>{
+        deleteItem(index)
+      }}/>
+      </div>
+      <span>
           <small>Added on: {toDoItem.dateAdded}</small> | 
           <small> Due: {toDoItem.dueDate}</small>
         </span>
-      </div>
     </div>
   );
 }
